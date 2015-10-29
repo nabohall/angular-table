@@ -1,4 +1,5 @@
 // Create an angular application called "sortApp"
+var app = angular.module('sortApp', []);
 
 
 // Define a controller "mainController" for you application, 
@@ -7,3 +8,10 @@
 	// Use and $http.get request to get the salary data
 	
 		// Set $scope.data equal to the data returned in your results
+app.controller('myCtrl', function($scope, $http){
+
+	$http.get('data/salaries.json').then(function(response){
+		$scope.data = response.data;
+		console.log("Hello");
+	});
+})
